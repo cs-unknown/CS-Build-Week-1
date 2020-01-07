@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'adventure',
-    'util',
     'api',
     'corsheaders',
     'rest_framework',
@@ -49,8 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',
     'allauth.account',
-    'rest_auth.registration',
-    "dj_database_url"
+    'rest_auth.registration'
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -92,6 +90,7 @@ WSGI_APPLICATION = 'adv_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+
 
 import dj_database_url
 DATABASES = {'default': dj_database_url.config(default=config('DATABASE_URL'))}
