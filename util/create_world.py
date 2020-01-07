@@ -15,23 +15,26 @@ for row in world.grid:
         room = Room(title=f'{rm.name} {rm.id}', description=rm.name)
         room.save()
         roomTracker[(rm.x, rm.y)] = room
-        if rm.x <= 9 and rm.x > 0:
-            roomTracker[(rm.x, rm.y)].connectRooms(
-                roomTracker[rm.x - 1, rm.y], "w")
-            roomTracker[(rm.x - 1, rm.y)
-                        ].connectRooms(roomTracker[rm.x, rm.y], "e")
-        if rm.y % 2 != 0:
-            if rm.x == 9 and rm.y > 0 and rm.y <= 9:
-                roomTracker[(rm.x, rm.y)].connectRooms(
-                    roomTracker[rm.x, rm.y - 1], "s")
-                roomTracker[(rm.x, rm.y - 1)
-                            ].connectRooms(roomTracker[rm.x, rm.y], "n")
-        elif rm.y > 0 and rm.y % 2 == 0:
-            if rm.x == 0:
-                roomTracker[(rm.x, rm.y)].connectRooms(
-                    roomTracker[rm.x, rm.y - 1], "s")
-                roomTracker[(rm.x, rm.y - 1)
-                            ].connectRooms(roomTracker[rm.x, rm.y], "n")
+        if rm.e_to != None:
+            coords = (rm.e_to.x, rm.e_to.y)
+            if coords in roomTracker:
+                roomTracker[rm.x, rm.y].connectRooms(roomTracker[coords], 'e')
+                roomTracker[coords].connectRooms(roomTracker[rm.x, rm.y], 'w')
+        if rm.w_to != None:
+            coords = (rm.w_to.x, rm.w_to.y)
+            if coords in roomTracker:
+                roomTracker[rm.x, rm.y].connectRooms(roomTracker[coords], 'w')
+                roomTracker[coords].connectRooms(roomTracker[rm.x, rm.y], 'e')
+        if rm.n_to != None:
+            coords = (rm.n_to.x, rm.n_to.y)
+            if coords in roomTracker:
+                roomTracker[rm.x, rm.y].connectRooms(roomTracker[coords], 'n')
+                roomTracker[coords].connectRooms(roomTracker[rm.x, rm.y], 's')
+        if rm.s_to != None:
+            coords = (rm.s_to.x, rm.s_to.y)
+            if coords in roomTracker:
+                roomTracker[rm.x, rm.y].connectRooms(roomTracker[coords], 's')
+                roomTracker[coords].connectRooms(roomTracker[rm.x, rm.y], 'n')
 world.print_rooms()
 
 # r_outside = Room(title="Outside Cave Entrance",
