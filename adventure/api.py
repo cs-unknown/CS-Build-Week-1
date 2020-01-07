@@ -14,23 +14,23 @@ import json
 @csrf_exempt
 @api_view(["GET"])
 def initialize(request):
-    print(request.user)
+    # print(request.user)
     user = request.user
-    print(request.user.player)
+    # print(request.user.player)
     player = user.player
-    print(request.user.player.id)
+    # print(request.user.player.id)
     player_id = player.id
-    print(player.uuid)
+    # print(player.uuid)
     uuid = player.uuid
-    print(player.room)
+    # print(player.room)
     room = player.room()
-    print(room.playerNames(player_id))
+    # print(room.playerNames(player_id))
     players = room.playerNames(player_id)
-    print(uuid)
-    print(player.user.username)
-    print(room.title)
-    print(room.description)
-    print(players)
+    # print(uuid)
+    # print(player.user.username)
+    # print(room.title)
+    # print(room.description)
+    # print(players)
     return JsonResponse({'uuid': uuid, 'name':player.user.username, 'title':room.title, 'description':room.description, 'players':players}, safe=True)
 
 
