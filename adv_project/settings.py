@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
+    'dj_database_url',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -91,9 +92,10 @@ WSGI_APPLICATION = 'adv_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-
 import dj_database_url
 DATABASES = {'default': dj_database_url.config(default=config('DATABASE_URL'))}
+
+
 
 
 
@@ -152,3 +154,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 import django_heroku
 django_heroku.settings(locals())
+
+# issues with dj-database-url when paired with sqlite, here's a workaround when in development environment
+if(config('DEBUG', cast=bool) == True):
+  del DATABASES['default']['OPTIONS']['sslmode']
