@@ -26,13 +26,13 @@ def initialize(request):
 # @csrf_exempt
 @api_view(["POST"])
 def move(request):
+    print(request.data)
     dirs={"n": "north", "s": "south", "e": "east", "w": "west"}
     reverse_dirs = {"n": "south", "s": "north", "e": "west", "w": "east"}
     player = request.user.player
     player_id = player.id
     player_uuid = player.uuid
-    data = json.loads(request.body)
-    direction = data['direction']
+    direction = request.data['direction']
     room = player.room()
     nextRoomID = None
     if direction == "n":
