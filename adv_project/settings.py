@@ -128,7 +128,7 @@ REST_FRAMEWORK = {
     # ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
-        # 'rest_framework.authentication.SessionAuthentication' - turned off to remove CSRF token,
+        'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ),
 }
