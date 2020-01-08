@@ -25,11 +25,6 @@ for row in world.grid:
             if coords in roomTracker:
                 roomTracker[rm.x, rm.y].connectRooms(roomTracker[coords], 'w')
                 roomTracker[coords].connectRooms(roomTracker[rm.x, rm.y], 'e')
-        if rm.n_to != None:
-            coords = (rm.n_to.x, rm.n_to.y)
-            if coords in roomTracker:
-                roomTracker[rm.x, rm.y].connectRooms(roomTracker[coords], 'n')
-                roomTracker[coords].connectRooms(roomTracker[rm.x, rm.y], 's')
         if rm.s_to != None:
             coords = (rm.s_to.x, rm.s_to.y)
             if coords in roomTracker:

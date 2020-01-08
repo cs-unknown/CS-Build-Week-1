@@ -5,6 +5,8 @@
 # procedural generation algorithm and use print_rooms()
 # to see the world.
 
+from random import randint
+
 
 class Room:
     def __init__(self, id, name, description, x, y):
@@ -67,6 +69,8 @@ class World:
 
         # While there are rooms to be created...
         previous_room = None
+        how_many_rows_completed = 0
+        rando = [randint(1, 8) for _ in range(size_x - 1)]
         while room_count < num_rooms:
 
             # Calculate the direction of the room to be created
@@ -97,6 +101,11 @@ class World:
             # Update iteration variables
             previous_room = room
             room_count += 1
+
+            if how_many_rows_completed < y and rando[y - 1] == x:
+                previous_row_room = self.grid[y - 1][x]
+                previous_row_room.connect_rooms(room, 'n')
+                how_many_rows_completed += 1
 
     def print_rooms(self):
         '''
