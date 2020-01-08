@@ -3,6 +3,9 @@ from adventure.models import Player, Room
 from util.sample_generator import World
 import requests
 import random
+
+# exec(open('./util/create_world.py').read())
+
 Room.objects.all().delete()
 word_site = "https://svnweb.freebsd.org/csrg/share/dict/words?view=co&content-type=text/plain"
 response = requests.get(word_site)
