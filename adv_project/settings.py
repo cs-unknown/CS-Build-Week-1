@@ -156,5 +156,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 django_heroku.settings(locals())
 
 # issues with dj-database-url when paired with sqlite, here's a workaround when in development environment
-# if(config('DEBUG', cast=bool) == True):
-#   del DATABASES['default']['OPTIONS']['sslmode']
+if(config('DEBUG', cast=bool) == True):
+    del DATABASES['default']['OPTIONS']['sslmode']
