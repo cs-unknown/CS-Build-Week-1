@@ -2,9 +2,7 @@ from django.contrib.auth.models import User
 from adventure.models import Player, Room
 from util.sample_generator import World
 
-
 Room.objects.all().delete()
-
 world = World()
 world.generate_rooms(10, 10, 100)
 
