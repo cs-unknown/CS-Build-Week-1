@@ -19,7 +19,7 @@ roomTracker = {}
 for row in world.grid:
     for rm in row:
         title = random.choice(WORDS).decode('utf-8').capitalize()
-        room = Room(title=f' {title} Room', description=f'You have entered the {title} Room')
+        room = Room(title=f' {title} Room {rm.id}', description=f'You have entered the {title} Room')
         room.save()
         roomTracker[(rm.x, rm.y)] = room
         if rm.e_to != None:
