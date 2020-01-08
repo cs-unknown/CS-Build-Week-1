@@ -1,3 +1,22 @@
 {
-  "python.pythonPath": "/Users/dan/.local/share/virtualenvs/CS-Build-Week-1-p_e20cya/bin/python"
+  "python.pythonPath": "C:\\Users\\Brellin\\.virtualenvs\\CS-Build-Week-1-oUieOXYh\\Scripts\\python.exe",
+  "peacock.color": "#397d5a",
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#49a073",
+    "activityBar.activeBorder": "#6e4699",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#6e4699",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "titleBar.activeBackground": "#397d5a",
+    "titleBar.inactiveBackground": "#397d5a99",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveForeground": "#e7e7e799",
+    "statusBar.background": "#397d5a",
+    "statusBarItem.hoverBackground": "#49a073",
+    "statusBar.foreground": "#e7e7e7",
+    "panel.border": "#49a073",
+    "sideBar.border": "#49a073",
+    "editorGroup.border": "#49a073"
+  }
 }
