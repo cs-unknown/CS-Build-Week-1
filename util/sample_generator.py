@@ -113,7 +113,7 @@ class World:
         '''
 
         # Add top border
-        str = "# " * ((3 + self.width * 5) // 2) + "\n"
+        str = "--" * ((3 + self.width * 5) // 2) + "\n"
 
         # The console prints top to bottom but our array is arranged
         # bottom to top.
@@ -123,15 +123,15 @@ class World:
         reverse_grid.reverse()
         for row in reverse_grid:
             # PRINT NORTH CONNECTION ROW
-            str += "#"
+            str += "|"
             for room in row:
                 if room is not None and room.n_to is not None:
                     str += "  |  "
                 else:
                     str += "     "
-            str += "#\n"
+            str += "|\n"
             # PRINT ROOM ROW
-            str += "#"
+            str += "|"
             for room in row:
                 if room is not None and room.w_to is not None:
                     str += "-"
@@ -145,18 +145,18 @@ class World:
                     str += "-"
                 else:
                     str += " "
-            str += "#\n"
+            str += "|\n"
             # PRINT SOUTH CONNECTION ROW
-            str += "#"
+            str += "|"
             for room in row:
                 if room is not None and room.s_to is not None:
                     str += "  |  "
                 else:
                     str += "     "
-            str += "#\n"
+            str += "|\n"
 
         # Add bottom border
-        str += "# " * ((3 + self.width * 5) // 2) + "\n"
+        str += "--" * ((3 + self.width * 5) // 2) + "\n"
 
         # Print string
         print(str)
