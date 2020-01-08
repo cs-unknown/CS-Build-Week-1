@@ -82,6 +82,7 @@ class World:
                 x -= 1
             else:
                 # If we hit a wall, turn north and reverse direction
+                room_direction = "n"
                 y += 1
                 direction *= -1
 
