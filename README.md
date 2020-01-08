@@ -82,25 +82,25 @@ More on Pusher below.
 These are implemented on the test server: `https://lambda-mud-test.herokuapp.com/`.
 
 ### Registration
-* `curl -X POST -H "Content-Type: application/json" -d '{"username":"testuser", "password1":"testpassword", "password2":"testpassword"}' localhost:8000/api/registration/`
+* `curl -X POST -H "Content-Type: application/json" -d '{"username":"dan", "password1":"unknownmud1", "password2":"unknownmud1"}' http://127.0.0.1:8000/api/registration/`
 * Response:
-  * `{"key":"5435ba6ae42ac5dda15a6638478288cbe9d5c3fd"}`
+  * `{"key":"6b7b9d0f33bd76e75b0a52433f268d3037e42e66"}`
 
 ### Login
 * Request:
-  * `curl -X POST -H "Content-Type: application/json" -d '{"username":"testuser", "password":"testpassword"}' localhost:8000/api/login/`
+  * `curl -X POST -H "Content-Type: application/json" -d '{"username":"testuser", "password":"testpassword"}' http://127.0.0.1:8000/api/login/`
 * Response:
-  * `{"key":"5435ba6ae42ac5dda15a6638478288cbe9d5c3fd"}`
+  * `{"key":"6b7b9d0f33bd76e75b0a52433f268d3037e42e66"}`
 
 ### Initialize
 * Request:  (Replace token string with logged in user's auth token)
-  * `curl -X GET -H 'Authorization: Token 5435ba6ae42ac5dda15a6638478288cbe9d5c3fd' localhost:8000/api/adv/init/`
+  * `curl -X GET -H 'Authorization: Token a32667f9a4fc4feaf2471165a0798ad60be27a58' http://127.0.0.1:8000/api/adv/init/`
 * Response:
   * `{"uuid": "c3ee7f04-5137-427e-8591-7fcf0557dd7b", "name": "testuser", "title": "Outside Cave Entrance", "description": "North of you, the cave mount beckons", "players": []}`
 
 ### Move
 * Request:  (Replace token string with logged in user's auth token)
-  * `curl -X POST -H 'Authorization: Token 5435ba6ae42ac5dda15a6638478288cbe9d5c3fd' -H "Content-Type: application/json" -d '{"direction":"n"}' localhost:8000/api/adv/move/`
+  * `curl -X POST -H 'Authorization: Token a32667f9a4fc4feaf2471165a0798ad60be27a58' -H "Content-Type: application/json" -d '{"direction":"n"}' http://127.0.0.1:8000/api/adv/move/`
 * Response:
   * `{"name": "testuser", "title": "Foyer", "description": "Dim light filters in from the south. Dusty\npassages run north and east.", "players": [], "error_msg": ""}`
 * Pusher broadcast (stretch):
@@ -109,7 +109,7 @@ These are implemented on the test server: `https://lambda-mud-test.herokuapp.com
 
 ### Say (stretch)
 * Request:  (Replace token string with logged in user's auth token)
-  * `curl -X POST -H 'Authorization: Token 5435ba6ae42ac5dda15a6638478288cbe9d5c3fd' -H "Content-Type: application/json" -d '{"message":"Hello, world!"}' localhost:8000/api/adv/say/`
+  * `curl -X POST -H 'Authorization: Token a32667f9a4fc4feaf2471165a0798ad60be27a58' -H "Content-Type: application/json" -d '{"message":"Hello, world!"}' http://127.0.0.1:8000/api/adv/say/`
 * Pusher broadcast:
   * Players in current room receive a message: `<name> says "Hello, world!"`
 

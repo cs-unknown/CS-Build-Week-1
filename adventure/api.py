@@ -66,3 +66,21 @@ def move(request):
 def say(request):
     # IMPLEMENT
     return JsonResponse({'error': "Not yet implemented"}, safe=True, status=500)
+
+
+@csrf_exempt
+@api_view(["GET"])
+def rooms(request):
+    user = request.user
+    player = user.player
+    player_id = player.id
+    return JsonResponse([{
+        'room_id': index,
+        'north': room.n_to != 0,
+        'south': room.s_to != 0,
+        'east': room.e_to != 0,
+        'west': room.w_to != 0,
+        'title': room.title,
+        'description': room.description,
+        'players': room.allPlayerNames()
+    } for index, room in enumerate(Room.objects.all())], safe=False)
