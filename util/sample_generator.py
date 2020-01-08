@@ -70,7 +70,7 @@ class World:
         # While there are rooms to be created...
         previous_room = None
         how_many_rows_completed = 0
-        rando = [randint(1, 8) for _ in range(size_x - 1)]
+        rando = [randint(0, 9) for _ in range(size_x - 1)]
         while room_count < num_rooms:
 
             # Calculate the direction of the room to be created
@@ -82,7 +82,6 @@ class World:
                 x -= 1
             else:
                 # If we hit a wall, turn north and reverse direction
-                room_direction = "n"
                 y += 1
                 direction *= -1
 
